@@ -1,4 +1,4 @@
-# Definition for singly-linked list.
+# Definition for a node in linked list.
 class ListNode(object):
     def __init__(self, x, link):
         self.val = x
@@ -13,23 +13,13 @@ class Solution(object):
         :rtype: ListNode
         """
         # 1->2->3->4 1, 4->1->2->3
-        tmp2 = head
         if not head:
             return head
 
         for i in xrange(k):
+            # print i
+            print head.val
             head = head.next
-        tmp = head.next
-        if not tmp:
-            tmp = tmp2
-        else:
-            new_head = tmp
-            head.next = None
-
-            while tmp.next is not None:
-                tmp = tmp.next
-            tmp.next = tmp2
-        return new_head
 
     def traverseLinkedList(self, input_dic):
         cur = input_dic['ln1']
@@ -68,6 +58,6 @@ if __name__ == "__main__":
     input_dic = inp.returnResult()
 
     sol = Solution()
-    sol.traverseLinkedList(input_dic)
+    # sol.traverseLinkedList(input_dic)
 
-    print sol.rotateRight(input_dic['ln1'], 1)
+    sol.rotateRight(input_dic['ln1'], 3)
