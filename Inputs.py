@@ -18,8 +18,15 @@ class Inputs(object):
         self.input_data = x
         self.input_type = input_type
         self.input_result = None
-        if self.input_type == 'linkedlist':
-            self.toLinkedList(self.input_data)
+        self.supported_data_structure = \
+            {"array": self.toArray(self.input_data),
+             "linkedlist": self.toLinkedList(self.input_data)
+             }
+        if self.input_type in self.supported_data_structure.keys():
+            self.supported_data_structure[self.input_type]
+
+    def toArray(self, input_data):
+        self.input_result = input_data
 
     def toLinkedList(self, input_data):
         '''
