@@ -1,8 +1,4 @@
-# Definition for a node in linked list.
-class ListNode(object):
-    def __init__(self, x, link):
-        self.val = x
-        self.next = link
+from Inputs import Inputs
 
 
 class Solution(object):
@@ -57,44 +53,6 @@ class Solution(object):
                     '->' + str(input_dic[key].next.val)
             except:
                 print key + "-> None"
-
-
-class Inputs(object):
-    '''
-    This is a class that will gradually deal with all leetcode input cases.
-
-    Usage Example:
-    input_data = [1, 2, 3, 4]
-    inp = Inputs(input_data, 'linkedlist')
-    input_dic = inp.returnResult()
-    '''
-    def __init__(self, x, input_type):
-        self.input_data = x
-        self.input_type = input_type
-        self.input_result = None
-        if self.input_type == 'linkedlist':
-            self.toLinkedList(self.input_data)
-
-    def toLinkedList(self, input_data):
-        '''
-        Convert input list into a dic of LinkedNodes as a linkedlist.
-        '''
-        input_dic = {}
-        for i in reversed(input_data):
-            if i != len(input_data):
-                cur_node = 'ln%s' % i
-                nex_node = 'ln%s' % (i + 1)
-                input_dic[cur_node] = ListNode(i, input_dic[nex_node])
-            else:
-                cur_node = 'ln%s' % i
-                input_dic[cur_node] = ListNode(i, None)
-        self.input_result = input_dic
-
-    def returnResult(self):
-        '''
-        Return the result.
-        '''
-        return self.input_result
 
 
 if __name__ == "__main__":
